@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=0.5,maximum-scale=1,minimum-scale=1,user-scalable=no">
-<title id="title">请稍候...</title>
+<title id="title">Waiting...</title>
 <style>
 html,body{
 margin:0px;
@@ -159,148 +159,153 @@ height:100%;
 <!--起始页-->
 <div id="startui">
 <div style="height:10px;width:100%"></div>
-<p style="margin:5px">游戏模式</p>
+<p style="margin:5px">Modes</p>
 <div>
-<div id="select_random" class="mode_button" onclick="select_random()">随机</div><div id="select_stair" class="mode_button" onclick="select_stair()">楼梯</div><div id="select_continuous" class="mode_button" onclick="select_continuous()">全纵连</div>
+<div id="select_random" class="mode_button" onclick="select_random()">Random</div><div id="select_stair" class="mode_button" onclick="select_stair()">Stairs</div><div id="select_continuous" class="mode_button" onclick="select_continuous()">One Line</div>
 </div>
 <div id="stair_option" style="display:none">
-<div id="stair_l2r" class="mode_button" style="width:121px" onclick="stair_l2r();reset()">左→右</div><div id="stair_r2l" class="mode_button" style="width:121px" onclick="stair_r2l();reset()">右←左</div>
+<div id="stair_l2r" class="mode_button" style="width:121px" onclick="stair_l2r();reset()">Left→Right</div><div id="stair_r2l" class="mode_button" style="width:121px" onclick="stair_r2l();reset()">Right←Left</div>
 </div>
 <div id="continuous_option" style="display:none">
-<div style='display:inline-block'>第</div><input id='user_continuous_input' type='text' class='mode_button' style='width:70px;text-align:center' oninput="this.value = this.value.replace(/[^0-9]/g, '');list_name = this.value;reset()"/><div style='display:inline-block'>列</div>
+<div style='display:inline-block'>Column</div><input id='user_continuous_input' type='text' class='mode_button' style='width:70px;text-align:center' oninput="this.value = this.value.replace(/[^0-9]/g, '');list_name = this.value;reset()"/><div style='display:inline-block'></div>
 </div>
-<p style="margin:5px">选项</p>
+<p style="margin:5px">Settings</p>
 <div>
-<div id="chance_option_button" class="mode_button" onclick="document.getElementById('chance_option').style.display = 'inline'">机会</div><div id="theme_option_button" class="mode_button" onclick="document.getElementById('theme_option').style.display = 'inline'">个性化</div><div id="timeout_option_button" class="mode_button" onclick="document.getElementById('timeout_option').style.display = 'inline'">倒计时</div>
+<div id="chance_option_button" class="mode_button" onclick="document.getElementById('chance_option').style.display = 'inline'">Chances</div><div id="theme_option_button" class="mode_button" onclick="document.getElementById('theme_option').style.display = 'inline'">Customize</div><div id="timeout_option_button" class="mode_button" onclick="document.getElementById('timeout_option').style.display = 'inline'">Countdown</div>
 </div>
-<div class="mode_button" style="background:rgb(0,200,195);color:#fff;width:274px" onclick="start()">开始</div>
-<p style="margin:5px;font-size:10px">判定位置：页面最底部</p>
-<p style="margin:5px;font-size:10px">本项目基于重制的 <a href="https://github.com/BUGTeas/EatKanoRemade" style="color:rgb(0,200,195)">BUGTeas/EatKanoRemade</a>，与 <a href="https://github.com/arcxingye/EatKano" style="color:rgb(0,200,195)">arcxingye/EatKano</a> 无关！</p>
+<div class="mode_button" style="background:rgb(0,200,195);color:#fff;width:274px" onclick="start()">Start</div>
+<!-- <p style="margin:5px;font-size:10px">判定位置：页面最底部</p> -->
+<p style="margin:5px;font-size:10px">本项目基于重制的 <a href="https://github.com/BUGTeas/EatKanoRemade" style="color:rgb(0,200,195)">BUGTeas/EatKanoRemade</a>，与 <a href="https://github.com/arcxingye/EatKano" style="color:rgb(0,200,195)">arcxingye/EatKano</a> ！</p>
 </div>
 <!--倒计时选项-->
 <div id="timeout_option" class="option">
-<p>倒计时</p>
+<p>Countdown</p>
 <div>
-<div id="disable_timeout" class="mode_button" style="width:121px" onclick="disable_timeout()">禁用</div><div id="enable_timeout" class="mode_button" style="width:121px" onclick="enable_timeout()">启用</div>
+<div id="disable_timeout" class="mode_button" style="width:121px" onclick="disable_timeout()">Disable</div><div id="enable_timeout" class="mode_button" style="width:121px" onclick="enable_timeout()">Enable</div>
 </div>
 <div id="user_timeout_option" style="display:none">
-<input id='user_timeout_input' type='text' class='mode_button' style='width:128px' onclick="inputtimeout = this.value;get_this = this" oninput="this.value = this.value.replace(/[^0-9]/g, '');user_timeout = this.value;reset()"/><div style='display:inline-block'>秒</div>
+<input id='user_timeout_input' type='text' class='mode_button' style='width:128px' onclick="inputtimeout = this.value;get_this = this" oninput="this.value = this.value.replace(/[^0-9]/g, '');user_timeout = this.value;reset()"/><div style='display:inline-block'>seconds</div>
 </div>
 <div>
-<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('timeout_option').style.display = 'none'">确认</div>
+<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('timeout_option').style.display = 'none'">Confirm</div>
 </div>
 </div>
 <!--机会选项-->
 <div id="chance_option" class="option">
-<p>机会</p>
+<p>Chances</p>
 <div>
-<div id="disable_chance" class="mode_button" onclick="disable_chance()">禁用</div><div id="enable_chance" class="mode_button" onclick="enable_chance()">启用</div><div id="enable_chance_infinite" class="mode_button" onclick="enable_chance_infinite()">无限</div>
+<div id="disable_chance" class="mode_button" onclick="disable_chance()">Disable</div><div id="enable_chance" class="mode_button" onclick="enable_chance()">Enable</div><div id="enable_chance_infinite" class="mode_button" onclick="enable_chance_infinite()">No limit</div>
 </div>
 <div id="user_chance_option" style="display:none">
 <input id='user_chance_input' type='text' class='mode_button' style='width:128px' onclick="inputchance = this.value;get_this = this" oninput="this.value = this.value.replace(/[^0-9]/g, '');user_chance = this.value;reset()"/><div style='display:inline-block'>次</div>
 </div>
 <div>
-<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('chance_option').style.display = 'none'">确认</div>
+<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('chance_option').style.display = 'none'">Confirm</div>
 </div>
 </div>
 <!--个性化选项-->
 <div id="theme_option" class="option">
-<p>个性化</p>
+<p>Customize</p>
 <div>
-<div style='display:inline-block'>页面标题</div><input id='user_title_input' type='text' class='mode_button' style='width:200px' oninput="document.getElementById('title').innerHTML = this.value;"/>
+<div style='display:inline-block'>Game name</div>
+<input id='user_title_input' type='text' class='mode_button' style='width:200px' oninput="document.getElementById('title').innerHTML = this.value;"/>
+Your Name
+<input id='user_nickname_input' type='text' class='mode_button' style='width:200px' oninput="document.getElementById('nickname').innerHTML = this.value;"/>
+
+</div>
+
+<div>
+<div class="mode_button" onclick="document.getElementById('background_option').style.display = 'inline'" style='background:rgb(0,200,195);color:#fff'>Background</div><div class="mode_button" onclick="document.getElementById('click_style_option').style.display = 'inline'" style='background:rgb(0,200,195);color:#fff'>Icon</div><div id="sound_option_button" class="mode_button" onclick="document.getElementById('sound_option').style.display = 'inline'">Sound</div>
 </div>
 <div>
-<div class="mode_button" onclick="document.getElementById('background_option').style.display = 'inline'" style='background:rgb(0,200,195);color:#fff'>背景</div><div class="mode_button" onclick="document.getElementById('click_style_option').style.display = 'inline'" style='background:rgb(0,200,195);color:#fff'>按键</div><div id="sound_option_button" class="mode_button" onclick="document.getElementById('sound_option').style.display = 'inline'">声音</div>
-</div>
-<div>
-<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('theme_option').style.display = 'none'">确认</div>
+<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('theme_option').style.display = 'none'">Confirm</div>
 </div>
 </div>
 <!--个性化-背景选项-->
 <div id="background_option" class="option">
-<p>背景</p>
+<p>Background</p>
 <div>
-<div id="to_part1_background_option" class="mode_button" style="width:121px" onclick="to_part1_theme_option()">区域一</div><div id="to_part2_background_option" class="mode_button" style="width:121px" onclick="to_part2_theme_option()">区域二</div>
+<div id="to_part1_background_option" class="mode_button" style="width:121px" onclick="to_part1_theme_option()">Zone A</div><div id="to_part2_background_option" class="mode_button" style="width:121px" onclick="to_part2_theme_option()">Zone B</div>
 </div>
-<p style="margin:0px;font-size:10px">输入颜色的对应代码，如“#114514”、“rgb(0,200,20)”、“red”</p>
+<p style="margin:0px;font-size:10px">Type ColorCode#114514”、“rgb(0,200,20)”、“red”</p>
 <div>
-<div style='display:inline-block'>背景颜色</div><input id='background_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_background = this.value;reset();}if(theme_part_name=='part2'){part2_background = this.value;reset();}"/>
-</div>
-<div>
-<div style='display:inline-block'>边框颜色</div><input id='border_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_border = this.value;reset();}if(theme_part_name=='part2'){part2_border = this.value;reset();}"/>
+<div style='display:inline-block'>Background Color</div><input id='background_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_background = this.value;reset();}if(theme_part_name=='part2'){part2_background = this.value;reset();}"/>
 </div>
 <div>
-<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('background_option').style.display = 'none'">确认</div>
+<div style='display:inline-block'>Border Color</div><input id='border_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_border = this.value;reset();}if(theme_part_name=='part2'){part2_border = this.value;reset();}"/>
+</div>
+<div>
+<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('background_option').style.display = 'none'">Confirm</div>
 </div>
 </div>
 <!--个性化-按键样式选项-->
 <div id="click_style_option" class="option" style="height:400px;bottom:-100px">
-<p>按键样式</p>
+<p>Icon style</p>
 <div>
-<div id="to_part1_click_style_option" class="mode_button" style="width:121px" onclick="to_part1_theme_option()">区域一</div><div id="to_part2_click_style_option" class="mode_button" style="width:121px" onclick="to_part2_theme_option()">区域二</div>
+<div id="to_part1_click_style_option" class="mode_button" style="width:121px" onclick="to_part1_theme_option()">Zone A</div><div id="to_part2_click_style_option" class="mode_button" style="width:121px" onclick="to_part2_theme_option()">Zone B</div>
 </div>
-<p style="margin:0px;font-size:10px">输入颜色的对应代码，如“#114514”、“rgb(0,200,20)”、“red”</p>
+<p style="margin:0px;font-size:10px">Type ColorCode，“#114514”、“rgb(0,200,20)”、“red”</p>
 <div>
-<div style='display:inline-block'>背景颜色</div><input id='click_background_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_click_background = this.value;part1_reset()}if(theme_part_name=='part2'){part2_click_background = this.value;part2_reset()}"/>
+<div style='display:inline-block'>Background color</div><input id='click_background_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_click_background = this.value;part1_reset()}if(theme_part_name=='part2'){part2_click_background = this.value;part2_reset()}"/>
 </div>
-<p style="margin:5px">按键内容(点击前)</p>
+<p style="margin:5px">Image before click</p>
 <div>
-<div class="mode_button" id="click_inner_before_default" onclick="click_inner_before_default()">默认图片</div><div class="mode_button" id="click_inner_before_image" onclick="click_inner_before_image()">自定义图片</div><div class="mode_button" id="click_inner_before_html" onclick="click_inner_before_html()">HTML 代码</div>
+<div class="mode_button" id="click_inner_before_default" onclick="click_inner_before_default()">Default Image</div><div class="mode_button" id="click_inner_before_image" onclick="click_inner_before_image()">From local file</div><div class="mode_button" id="click_inner_before_html" onclick="click_inner_before_html()">From HTML code</div>
 </div>
 <div id="click_inner_before_default_option" style="display:none">
-<div id="click_inner_before_default_1" class="mode_button" style="width:121px" onclick="click_inner_before_default_1()">图片一</div><div id="click_inner_before_default_2" class="mode_button" style="width:121px" onclick="click_inner_before_default_2()">图片二</div>
+<div id="click_inner_before_default_1" class="mode_button" style="width:121px" onclick="click_inner_before_default_1()">Icon A</div><div id="click_inner_before_default_2" class="mode_button" style="width:121px" onclick="click_inner_before_default_2()">Icon B</div>
 </div>
 <div id="click_inner_before_image_option"></div>
 <div id="click_inner_before_html_option" style="display:none">
-<div style='display:inline-block'>HTML 代码</div><input id='click_inner_before_html_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_click_inner = this.value;part1_reset()}if(theme_part_name=='part2'){part2_click_inner = this.value;part2_reset()}"/>
+<div style='display:inline-block'>From HTML code</div><input id='click_inner_before_html_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_click_inner = this.value;part1_reset()}if(theme_part_name=='part2'){part2_click_inner = this.value;part2_reset()}"/>
 </div>
-<p style="margin:5px">按键内容(点击后)</p>
+<p style="margin:5px">Image after click</p>
 <div>
-<div class="mode_button" id="click_inner_after_default" onclick="click_inner_after_default()">默认图片</div><div class="mode_button" id="click_inner_after_image" onclick="click_inner_after_image()">自定义图片</div><div class="mode_button" id="click_inner_after_html" onclick="click_inner_after_html()">HTML 代码</div>
+<div class="mode_button" id="click_inner_after_default" onclick="click_inner_after_default()">Default Image</div><div class="mode_button" id="click_inner_after_image" onclick="click_inner_after_image()">From local file</div><div class="mode_button" id="click_inner_after_html" onclick="click_inner_after_html()">From HTML code</div>
 </div>
 <div id="click_inner_after_image_option"></div>
 <div id="click_inner_after_html_option" style="display:none">
-<div style='display:inline-block'>HTML 代码</div><input id='click_inner_after_html_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_after_click_inner = this.value;part1_reset()}if(theme_part_name=='part2'){part2_after_click_inner = this.value;part2_reset()}"/>
+<div style='display:inline-block'>From HTML code</div><input id='click_inner_after_html_input' type='text' class='mode_button' style='width:200px' oninput="if(theme_part_name=='part1'){part1_after_click_inner = this.value;part1_reset()}if(theme_part_name=='part2'){part2_after_click_inner = this.value;part2_reset()}"/>
 </div>
 <div>
-<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('click_style_option').style.display = 'none'">确认</div>
+<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('click_style_option').style.display = 'none'">Confirm</div>
 </div>
 </div>
 <!--个性化-声音选项-->
 <div id="sound_option" class="option" style="height:310px;bottom:-10px">
-<p>声音</p>
+<p>Sound Effect</p>
 <div>
-<div id="disable_sound" class="mode_button" style="width:121px" onclick="disable_sound()">禁用</div><div id="enable_sound" class="mode_button" style="width:121px" onclick="enable_sound()">启用</div>
+<div id="disable_sound" class="mode_button" style="width:121px" onclick="disable_sound()">Disable</div><div id="enable_sound" class="mode_button" style="width:121px" onclick="enable_sound()">Enable</div>
 </div>
 <div id="sound_option_main" style="display:none">
-<p style="margin:5px">时间结束音效</p>
+<p style="margin:5px">Timeout Effect</p>
 <div>
-<div id="timeover_sound_disable" class="mode_button" onclick="timeover_sound_disable()">无</div><div id="timeover_sound_default" class="mode_button" onclick="timeover_sound_default();play_timeover_sound()">默认</div><div id="timeover_sound_custom" class="mode_button" onclick="timeover_sound_custom()">自定义文件</div>
+<div id="timeover_sound_disable" class="mode_button" onclick="timeover_sound_disable()">OFF</div><div id="timeover_sound_default" class="mode_button" onclick="timeover_sound_default();play_timeover_sound()">Default</div><div id="timeover_sound_custom" class="mode_button" onclick="timeover_sound_custom()">From Local</div>
 </div>
 <div id="timeover_sound_custom_option"></div>
-<p style="margin:5px">点击错误音效</p>
+<p style="margin:5px">Click Error Effect</p>
 <div>
-<div id="error_sound_disable" class="mode_button" onclick="error_sound_disable()">无</div><div id="error_sound_default" class="mode_button" onclick="error_sound_default();play_error_sound()">默认</div><div id="error_sound_custom" class="mode_button" onclick="error_sound_custom()">自定义文件</div>
+<div id="error_sound_disable" class="mode_button" onclick="error_sound_disable()">OFF</div><div id="error_sound_default" class="mode_button" onclick="error_sound_default();play_error_sound()">Default</div><div id="error_sound_custom" class="mode_button" onclick="error_sound_custom()">From Local File</div>
 </div>
 <div id="error_sound_custom_option"></div>
-<p style="margin:5px">点击错误音效(有机会)</p>
+<p style="margin:5px">Click Error Effect(chance left)</p>
 <div>
-<div id="error_chance_sound_disable" class="mode_button" onclick="error_chance_sound_disable()">无</div><div id="error_chance_sound_default" class="mode_button" onclick="error_chance_sound_default();play_error_chance_sound()">默认</div><div id="error_chance_sound_custom" class="mode_button" onclick="error_chance_sound_custom()">自定义文件</div>
+<div id="error_chance_sound_disable" class="mode_button" onclick="error_chance_sound_disable()">OFF</div><div id="error_chance_sound_default" class="mode_button" onclick="error_chance_sound_default();play_error_chance_sound()">Default</div><div id="error_chance_sound_custom" class="mode_button" onclick="error_chance_sound_custom()">From Local File</div>
 </div>
 <div id="error_chance_sound_custom_option"></div>
-<p style="margin:5px">按键点击音效</p>
+<p style="margin:5px">Click Effect</p>
 <div>
-<div id="to_part1_sound_option" class="mode_button" style="width:121px" onclick="to_part1_theme_option()">区域一</div><div id="to_part2_sound_option" class="mode_button" style="width:121px" onclick="to_part2_theme_option()">区域二</div>
+<div id="to_part1_sound_option" class="mode_button" style="width:121px" onclick="to_part1_theme_option()">Zone A</div><div id="to_part2_sound_option" class="mode_button" style="width:121px" onclick="to_part2_theme_option()">Zone B</div>
 </div>
 <div>
-<div id="click_sound_disable" class="mode_button" onclick="click_sound_disable()">无</div><div id="click_sound_default" class="mode_button" onclick="click_sound_default()">默认</div><div id="click_sound_custom" class="mode_button" onclick="click_sound_custom()">自定义文件</div>
+<div id="click_sound_disable" class="mode_button" onclick="click_sound_disable()">Disable</div><div id="click_sound_default" class="mode_button" onclick="click_sound_default()">Default</div><div id="click_sound_custom" class="mode_button" onclick="click_sound_custom()">From local File</div>
 </div>
 <div id="click_sound_default_option" style="display:none">
-<div id="click_sound_default_1" class="mode_button" style="width:121px" onclick="click_sound_default_1();audio = document.createElement('audio');audio.src = 'Resources/click_sound_default_1.mp3';audio.play();">声音一</div><div id="click_sound_default_2" class="mode_button" style="width:121px" onclick="click_sound_default_2();audio = document.createElement('audio');audio.src = 'Resources/click_sound_default_2.mp3';audio.play();">声音二</div>
+<div id="click_sound_default_1" class="mode_button" style="width:121px" onclick="click_sound_default_1();audio = document.createElement('audio');audio.src = 'Resources/click_sound_default_1.mp3';audio.play();">Sound A</div><div id="click_sound_default_2" class="mode_button" style="width:121px" onclick="click_sound_default_2();audio = document.createElement('audio');audio.src = 'Resources/click_sound_default_2.mp3';audio.play();">Sound B</div>
 </div>
 <div id="click_sound_custom_option"></div>
 </div>
-<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('sound_option').style.display = 'none'">确认</div>
+<div class="mode_button" style='background:rgb(0,200,195);color:#fff;width:274px' onclick="document.getElementById('sound_option').style.display = 'none'">Confirm</div>
 </div>
 <!--游戏结束页-->
 <div id="endui">
@@ -308,17 +313,21 @@ height:100%;
 <h3 id="endui_said"></h3>
 <p id="endui_timeout"></p>
 <div>
-<div class="mode_button" style="width:121px" onclick="restart()">重新开始</div><div class="mode_button" style="background:rgb(0,200,195);color:#fff;width:121px" onclick="tostartui()">返回起始页</div>
+<div class="mode_button" style="width:121px" onclick="restart()">Restart</div><div class="mode_button" style="background:rgb(0,200,195);color:#fff;width:121px" onclick="tostartui()">Home</div>
 </div>
 <!--在此处修改你的开源地址、视频链接，记得要保留原作者的链接-->
+
+<!-- Name your own price If you'd like to support me in making more of these programming / game dev videos, I have a Patreon page over here: https://www.patreon.com/SebastianLague -->
 <div>
-<a class="mode_button" href="http://github.com/BUGTeas/EatKanoRemade">开源</a><a class="mode_button" style="background:rgb(0,200,195);color:#fff" href="http://bilibili.com">视频(Bilibili)</a><a class="mode_button" href="http://github.com/BUGTeas/EatKanoRemade">原作者</a><div class="mode_button" onclick="alert('本项目基于重制的 BUGTeas/EatKanoRemade，与 arcxingye/EatKano 无关！');window.location.href = 'https://github.com/arcxingye/EatKano'">灵感来源</div>
+<a class="mode_button" href="http://github.com/BUGTeas/EatKanoRemade">SourceCode</a><a class="mode_button" style="background:rgb(0,200,195);color:#fff" href="http://bilibili.com">Youtube</a><a class="mode_button" href="http://github.com/BUGTeas/EatKanoRemade">Credit</a><div class="mode_button" onclick="alert('本项目基于重制的 BUGTeas/EatKanoRemade，与 arcxingye/EatKano OFF关！');window.location.href = 'https://github.com/arcxingye/EatKano'">Support</div>
 </div>
 </div>
 <script type="text/javascript">
 //所有变量都不能删除
 //默认标题
-user_title = "吃掉小鹿乃（重制版）";
+user_title = "Fucking Uncle Roger";
+
+user_nickname = "Sorry Children"
 //默认边框颜色
 part1_border = "#eee";
 part2_border = "#eee";

@@ -4,6 +4,12 @@ var animation_cnt = 0;
 
 //窗口标题设置
 document.getElementById("user_title_input").value = user_title;
+
+//use nick name 
+// user_nickname = document.getElementById("user_nickname_input").value;
+
+document.getElementById("user_nickname_input").value = user_nickname;
+
 //进入起始页
 alertbg_in();
 loadstartui();
@@ -294,13 +300,13 @@ if(theme_part_name=="part2"){
 part2_before_click_inner_mode = "image";
 }
 if(window.FileReader){
-document.getElementById("click_inner_before_image_option").innerHTML = "<p style='margin:5px'>图片大小不建议超过2M，否则游戏会卡顿甚至闪退</p><input id='click_inner_before_image_file' type='file' style='background:#eee'/>";
+document.getElementById("click_inner_before_image_option").innerHTML = "<p style='margin:5px'>image size less than 2M</p><input id='click_inner_before_image_file' type='file' style='background:#eee'/>";
 input_image = document.getElementById("click_inner_before_image_file");
 input_image.addEventListener('change',get_image,false);
 image_mode = "before";
 }
 else{
-document.getElementById("click_inner_before_image_option").innerHTML = "<p style='margin:5px'>抱歉，您的浏览器不支持自定义图片</p>";
+document.getElementById("click_inner_before_image_option").innerHTML = "<p style='margin:5px'>Sorry  your current browser does not support local file</p>";
 input.setAttribute('disabled','disabled');
 }
 }
@@ -715,7 +721,7 @@ audio.play();
 function get_image(){
 var file = input_image.files[0];
 if(!/image\/\w+/.test(file.type)){
-alert("请确保文件为图像类型");
+alert("Ensure you choose a image file");
 }
 else{
 var reader = new FileReader();
@@ -786,7 +792,7 @@ if(user_timeout=="disabled"){
 document.getElementById("timeout").innerHTML = " 时间: " + timeout_plus;
 }
 else{
-document.getElementById("timeout").innerHTML = " 倒计时: " + timeout;
+document.getElementById("timeout").innerHTML = " CountDown: " + timeout;
 }
 //设置机会
 chance_plus = 0;
@@ -796,19 +802,21 @@ document.getElementById("chance").innerHTML = "";
 }
 if(user_chance>=0){
 chance = user_chance;
-document.getElementById("chance").innerHTML = " 机会: " + chance;
+document.getElementById("chance").innerHTML = " chances: " + chance;
 }
 if(user_chance=="infinite"){
 chance = user_chance;
-document.getElementById("chance").innerHTML = " 无限机会";
+document.getElementById("chance").innerHTML = " No limit";
 }
 //设置统计点击次数
 cnt = 0;
-document.getElementById("count").innerHTML = "次数: " + cnt;
+document.getElementById("count").innerHTML = "Click: " + cnt;
 //设置界面主题
 document.getElementById("part1_table").style.background = part1_border;
 document.getElementById("part2_table").style.background = part2_border;
 document.getElementById("title").innerHTML = document.getElementById("user_title_input").value;
+user_nickname = document.getElementById("user_nickname_input").value;
+
 //载入游戏
 part1_fullheight = 348;
 part2_fullheight = 348;
@@ -930,7 +938,7 @@ cnt++;
 if(cnt==1){
 setTimeout ("starttimeout()",1000);
 }
-document.getElementById("count").innerHTML = "次数: " + cnt;
+document.getElementById("count").innerHTML = "Click: " + cnt;
 animation_cnt++;
 }
 //点击错误
@@ -938,7 +946,7 @@ function errorclick(){
 if(chance<=0){
 document.getElementById("masker").style.bottom = "0px";
 play_error_sound();
-document.getElementById("score").innerHTML = "点错啦!";
+document.getElementById("score").innerHTML = "Miss!";
 get_this.style.background = '#ff0000';
 setTimeout("if(get_this.className=='part1'){get_this.style.background = part1_background}if(get_this.className=='part2'){get_this.style.background = part2_background}",100);
 setTimeout("get_this.style.background = '#ff0000'",200);
@@ -956,13 +964,13 @@ setTimeout("get_this.style.background = '#ffaaaa'",300);
 setTimeout("if(get_this.className=='part1'){get_this.style.background = part1_background}if(get_this.className=='part2'){get_this.style.background = part2_background}",450);
 setTimeout("get_this.style.background = '#ffaaaa'",600);
 if(user_chance=="infinite"){
-document.getElementById("chance").innerHTML = " 无限机会";
+document.getElementById("chance").innerHTML = " No Limit";
 }
 else{
 chance = chance - 1;
-document.getElementById("chance").innerHTML = " 机会: " + chance;
+document.getElementById("chance").innerHTML = " chance: " + chance;
 if(chance<=0){
-document.getElementById("chance").innerHTML = " 机会用完";
+document.getElementById("chance").innerHTML = " No chance Left";
 }
 }
 chance_plus++;
@@ -973,7 +981,7 @@ function starttimeout(){
 timeout_plus++;
 //倒计时禁用情况下
 if(user_timeout=="disabled"){
-document.getElementById("timeout").innerHTML = " 时间: " + timeout_plus;
+document.getElementById("timeout").innerHTML = " Timeout: " + timeout_plus;
 setTimeout ("starttimeout()",1000);
 }
 //倒计时启用情况下
@@ -982,12 +990,12 @@ timeout = timeout - 1;
 if(timeout==0){
 document.getElementById("masker").style.bottom = "0px";
 play_timeover_sound();
-document.getElementById("score").innerHTML = "时间到!";
+document.getElementById("score").innerHTML = "Timeout!";
 document.getElementById("end_animation").innerHTML = "#main{animation-name:oa;animation-duration:1s;}@keyframes oa{0%{opacity:1;}12%{opacity:0;}25%{opacity:1;}32%{opacity:0;}50%{opacity:1;}62%{opacity:0;}75%{opacity:1;}100%{opacity:1;}}";
 setTimeout("end()",1000);
 }
 else if(timeout>=1){
-document.getElementById("timeout").innerHTML = " 倒计时: " + timeout;
+document.getElementById("timeout").innerHTML = " CountDown: " + timeout;
 setTimeout ("starttimeout()",1000);
 }
 }
@@ -999,21 +1007,21 @@ document.getElementById("alert_style").innerHTML = "#endui{animation-name:endui_
 alertbg_in();
 if(timeout_plus>=1){
 if(chance_plus>=1){
-chance_score = "<p>使用了" + chance_plus + "次机会</p>";
+chance_score = "<p>Chances" + chance_plus + "Used</p>";
 }
 else{
-chance_score = "<p>没有使用机会</p>";
+chance_score = "<p>No Chances Left</p>";
 }
 //得分评语，变量cnt为点击次数，timeout_plus是游戏所使用的时间，cnt/timeout_plus可以得出平均每秒点击次数(CPS)
-if(cnt/timeout_plus>=20){endui_say = "您";}
-else if(cnt/timeout_plus>=15){endui_say = "刑啊";}
-else if(cnt/timeout_plus>=7){endui_say = "好家伙";}
-else if(cnt/timeout_plus>=3){endui_say = "还能再练一下，没事的";}
-else{endui_say = "---蔡---";}
-document.getElementById("endui_timeout").innerHTML = "<p style='margin:5px;font-size:15px;color:rgb(0,200,195)'>" + endui_say + "</p><p>您在 " + timeout_plus + " 秒内点击了 " + cnt + " 次</p><p>平均每秒点击次数(CPS)：" + cnt / timeout_plus + "</p>" + chance_score;
+if(cnt/timeout_plus>=20){endui_say = document.getElementById("user_nickname_input").value;}
+else if(cnt/timeout_plus>=15){endui_say = "Awesome";}
+else if(cnt/timeout_plus>=7){endui_say = "Good Boy";}
+else if(cnt/timeout_plus>=3){endui_say = "Sorry";}
+else{endui_say = "---"+document.getElementById("user_nickname_input").value+"---";}
+document.getElementById("endui_timeout").innerHTML = "<p style='margin:5px;font-size:15px;color:rgb(0,200,195)'>" + endui_say + "</p><p>You Got " + cnt + " Clicks in " + timeout_plus + " Seconds</p><p>Average Clicks in Second(CPS)：" + cnt / timeout_plus + "</p>" + chance_score;
 }
 else{
-document.getElementById("endui_timeout").innerHTML = "<p>您的操作时间不足 1 秒，不能获取成绩</p>";
+document.getElementById("endui_timeout").innerHTML = "<p>You are too quick，give Another Try</p>";
 }
 }
 //重新开始
